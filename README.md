@@ -10,9 +10,10 @@ Document is `Python` project web API for application connect data
 
 - github (https://github.com/natthasath/docker-vtiger.git)
 
-### 🥈 Run [http://localhost:8080/](http://localhost:8080/) username : `admin` password : `admin`
-<br>
+### 🥈 Run
+
+- [http://localhost:8080/](http://localhost:8080/) username : `admin` password : `admin`
 
 ```shell
-docker-compose up -d
+$ docker-compose up -d
 ```
