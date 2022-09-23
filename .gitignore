@@ -1,0 +1,4 @@
+.idea/
+volumes/
+!volumes/logs/.gitkeep
+!volumes/storage/.gitkeep

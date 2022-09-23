@@ -1,0 +1,68 @@
+version: '3.9'
+services:
+  nginx:
+    image: nginx:1.16.1-alpine
+    ports:
+      - 3080:80
+      - 3443:443
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./localhost.cert:/etc/ssl/localhost.cert
+      - ./localhost.key:/etc/ssl/localhost.key
+    links:
+      - vtiger
+
+  vtiger:
+    image: javanile/vtiger:7.1.0
+    environment:
+      - VT_DEBUG=true
+      - VT_SITE_URL=https://localhost/
+      - MYSQL_HOST=mysql
+      - MYSQL_DATABASE=vtiger
+      - MYSQL_ROOT_PASSWORD=vtiger
+    ports:
+      - 3000:80
+    volumes:
+      - ./:/app
+      - ./volumes/logs:/var/www/html/logs
+      - ./volumes/storage:/var/www/html/storage
+      - ./config_override.php:/var/www/html/config_override.php
+    links:
+      - mysql
+
+  mysql:
+    image: mysql:5.5
+    environment:
+      - MYSQL_DATABASE=vtiger
+      - MYSQL_ROOT_PASSWORD=vtiger
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql:rw
+
+  adminer:
+    image: javanile/adminer
+    environment:
+      - MYSQL_DATABASE=vtiger
+      - MYSQL_ROOT_PASSWORD=vtiger
+    ports:
+      - "3001:8080"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=mysql
+      - MYSQL_DATABASE=vtiger
+      - MYSQL_ROOT_PASSWORD=vtiger
+    ports:
+      - "3002:80"
+
+networks:
+  default:
+    driver: bridge
+
+volumes:
+  db:
+    driver: local
+  data:
+    driver: local
