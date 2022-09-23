@@ -1,14 +1,10 @@
 # 🎉 Docker Vtiger
 
-Document is `Vtiger` Docker
+Vtiger CRM is online software that helps 300000+ businesses grow sales, improve marketing ROI, and deliver great customer service.
 
 ![version](https://img.shields.io/badge/version-1.0-blue)
 ![rating](https://img.shields.io/badge/rating-★★★★★-yellow)
 ![uptime](https://img.shields.io/badge/uptime-100%25-brightgreen)
-
-### 💗 Repository
-
-- github (https://github.com/natthasath/docker-vtiger.git)
 
 ### 🥈 Run
 
