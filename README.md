@@ -1,6 +1,6 @@
 # 🎉 Docker Vtiger
 
-Document is `Python` project web API for application connect data
+Document is `Vtiger` Docker
 
 ![version](https://img.shields.io/badge/version-1.0-blue)
 ![rating](https://img.shields.io/badge/rating-★★★★★-yellow)
@@ -15,5 +15,5 @@ Document is `Python` project web API for application connect data
 - [http://localhost:8080/](http://localhost:8080/) username : `admin` password : `admin`
 
 ```shell
-$ docker-compose up -d
+docker-compose up -d
 ```
